@@ -1,33 +1,29 @@
-# Auto-GPT-Plugin-Template
-A starting point for developing your own external plug-in for Auto-GPT
+# Auto-GPT-Detective-Plugin
+The Auto-GPT-Detective-Plugin is a useful tool for any AI enthusiast. 
+This plugin aims to provide Auto-GPT with the ability to detect whether text is AI generated.
+This will help the system recognize the quality of sources it is using, or potentially allow for the system to rewrite the text in order to evade such systems.
 
-# **If you want your plugin to live within the codebase, use the example in the [plugins repo](https://github.com/Significant-Gravitas/Auto-GPT-Plugins) instead**
+### Key Features
+- [Sapling AI Detector](https://sapling.ai/ai-content-detector): Detects whether text is ai generated, with the ability to rate specific portions. Requires a Sapling AI paid plan in order to use the API.
+
+### How It Works
+If the environment variables for the detective engine (`DETECTIVE_ENGINE`) and the associated api key (`SAPLINGAI_API_KEY`) are set, the detective commands for that engine will be enabled.
+
+### TODO
+- [ ] Implement other detective engines
+- [ ] Format the engine output to be consistent across the engines
+
 
 ### Plugin Installation Steps
+Download this repository as a .zip file, copy it to ./plugins/, and rename it to Auto-GPT-Detective-Plugin.zip.
 
-1. **Clone or download the plugin repository:**
-   Clone the plugin repository, or download the repository as a zip file.
-  
-   ![Download Zip](https://raw.githubusercontent.com/BillSchumacher/Auto-GPT/master/plugin.png)
+To download it directly from your Auto-GPT directory, you can run this command on Linux or MacOS:
+```sh
+curl -o ./plugins/Auto-GPT-Detective-Plugin.zip https://github.com/amrrsn/Auto-GPT-Detective-Plugin/archive/refs/heads/master.zip 
+```
 
-2. **Install the plugin's dependencies (if any):**
-   Navigate to the plugin's folder in your terminal, and run the following command to install any required dependencies:
+In PowerShell:
+```pwsh
+Invoke-WebRequest -Uri "https://github.com/amrrsn/Auto-GPT-Detective-Plugin/archive/refs/heads/master.zip" -OutFile "./plugins/Auto-GPT-Detective-Plugin.zip"
+```
 
-   ``` shell
-      pip install -r requirements.txt
-   ```
-
-3. **Package the plugin as a Zip file:**
-   If you cloned the repository, compress the plugin folder as a Zip file.
-
-4. **Copy the plugin's Zip file:**
-   Place the plugin's Zip file in the `plugins` folder of the Auto-GPT repository.
-
-5. **Allowlist the plugin (optional):**
-   Add the plugin's class name to the `ALLOWLISTED_PLUGINS` in the `.env` file to avoid being prompted with a warning when loading the plugin:
-
-   ``` shell
-   ALLOWLISTED_PLUGINS=example-plugin1,example-plugin2,example-plugin3
-   ```
-
-   If the plugin is not allowlisted, you will be warned before it's loaded.
