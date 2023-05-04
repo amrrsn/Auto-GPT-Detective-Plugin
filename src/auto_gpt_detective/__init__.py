@@ -32,6 +32,9 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
                 and os.path.exists(os.getenv("ZEROGPT_HEADER_JSON_PATH"))
         )
 
+        print(os.getenv("DETECTIVE_ENGINE"))
+        print(os.getenv("ZEROGPT_HEADER_JSON_PATH"))
+
         if self.load_sapling is None and self.load_zerogpt is None:
             print("Warning: Detective Engine not set!")
 
