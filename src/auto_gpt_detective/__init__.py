@@ -32,7 +32,7 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
                 and os.path.exists(os.getenv("ZEROGPT_HEADER_JSON_PATH"))
         )
 
-        if self.load_sapling is None and self.load_zero_gpt is None:
+        if self.load_sapling is None and self.load_zerogpt is None:
             print("Warning: Detective Engine not set!")
 
     def can_handle_post_prompt(self) -> bool:
@@ -60,9 +60,7 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
         else:
             print(
                 "Warning: Detective Engine not loaded. "
-                "Please set DETECTIVE_ENGINE and the "
-                "appropriate API key environment variables. "
-                "(SAPLINGAI_API_KEY)"
+                "Please check the documentation for help!"
             )
 
             print(
@@ -84,7 +82,7 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
         if self.load_sapling:
             return "sapling_detect", arguments
         elif self.load_zero_gpt:
-            return "zero_gpt_detect", arguments
+            return "zerogpt_detect", arguments
         else:
             return command_name, arguments
 
