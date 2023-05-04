@@ -23,19 +23,3 @@ def _sapling_detect(text: str, sent_scores: bool = False) -> str:
 
 
 sapling_post_endpoint = 'https://api.sapling.ai/api/v1/aidetect'
-
-
-class SaplingAIDetector:
-    def __init__(self, api_key: str, post_endpoint: str = sapling_post_endpoint):
-        self.api_key = api_key
-        self.post_endpoint = post_endpoint
-
-    def detect(self, text: str, sent_scores: bool = False) -> dict:
-        body = {
-            'key': self.api_key,
-            'text': text,
-            'sent_scores': sent_scores
-        }
-
-        response = requests.post(self.post_endpoint, json=body)
-        return response.json()
