@@ -19,7 +19,7 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
     def __init__(self):
         super().__init__()
         self._name = "Auto-GPT-Detective-Plugin"
-        self._version = "0.0.2"
+        self._version = "0.0.3"
         self._description = "Detect AI generated text."
         self.load_sapling = (
                 os.getenv("DETECTIVE_ENGINE").lower() == "saplingai"
