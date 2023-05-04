@@ -7,3 +7,6 @@ wheel
 setuptools
 build
 twine
+os
+json
+requests
