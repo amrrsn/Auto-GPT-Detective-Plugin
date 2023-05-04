@@ -28,3 +28,13 @@ In PowerShell:
 Invoke-WebRequest -Uri "ttps://github.com/amrrsn/Auto-GPT-Detective-Plugin/archive/refs/heads/master.zip" -OutFile "./plugins/Auto-GPT-Detective-Plugin.zip"
 ```
 
+Put the following in your `.env`
+
+```env
+################################################################################
+### DETECTIVE PLUGIN SETTINGS
+################################################################################
+
+DETECTIVE_ENGINE=saplingapi
+SAPLING_API_KEY=<insert_api_key_here>
+```
