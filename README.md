@@ -4,14 +4,16 @@ This plugin aims to provide Auto-GPT with the ability to detect whether text is 
 This will help the system recognize the quality of sources it is using.
 
 ### Key Features
-- [Sapling AI Detector](https://sapling.ai/ai-content-detector): Detects whether text is ai generated, with the ability to rate specific portions. Requires a Sapling AI paid plan in order to use the API.
+- [Sapling AI Detector](https://sapling.ai/ai-content-detector): Detects whether text is ai generated with the ability to rate specific portions. Requires a Sapling AI paid plan in order to use the API.
+- [ZeroGPT](https://www.zerogpt.com): Detects whether text is ai generated with the ability to rate specific portions. Requires API credentials in order to use the API (taken in as a json of POST headers).
 
 ### How It Works
-If the environment variables for the detective engine (`DETECTIVE_ENGINE`) and the associated api key (`SAPLINGAI_API_KEY`) are set, the detective commands for that engine will be enabled.
+If the environment variables for the detective engine (`DETECTIVE_ENGINE`) and the associated engine variables are set (documented below), the detective commands for that engine will be enabled.
 
 ### TODO
 - [x] Implement initial detection through SaplingAI (It has a free trial for the API)
-- [ ] Implement other detective engines ([GPTZero](https://gptzero.me)? [ZeroGPT](https://www.zerogpt.com)? [OpenAI](https://platform.openai.com/ai-text-classifier)? [Writer](https://writer.com/ai-content-detector/)?)
+- [x] Implement [ZeroGPT](https://www.zerogpt.com) support
+- [ ] Implement other detective engines ([GPTZero](https://gptzero.me)? [OpenAI](https://platform.openai.com/ai-text-classifier)? [Writer](https://writer.com/ai-content-detector/)?)
 - [ ] Format the engine output to be consistent across the engines
 
 
@@ -28,13 +30,29 @@ In PowerShell:
 Invoke-WebRequest -Uri "ttps://github.com/amrrsn/Auto-GPT-Detective-Plugin/archive/refs/heads/master.zip" -OutFile "./plugins/Auto-GPT-Detective-Plugin.zip"
 ```
 
-Put the following in your `.env`
+Put the following in your `.env` and uncomment as desired:
 
 ```env
 ################################################################################
 ### DETECTIVE PLUGIN SETTINGS
 ################################################################################
 
-DETECTIVE_ENGINE=saplingapi
-SAPLING_API_KEY=<insert_api_key_here>
+## DETECTIVE_ENGINE can be one of the following: saplingapi, zerogpt
+# DETECTIVE_ENGINE=saplingapi
+
+## saplingapi mode requires a paid mode api key
+## SAPLING_API_KEY is REQUIRED
+## SAPLINGAI_POST_ENDPOINT is optional (defaults to https://api.sapling.ai/api/v1/aidetect)
+
+# SAPLING_API_KEY=<insert_api_key_here>
+# SAPLINGAI_POST_ENDPOINT=https://api.sapling.ai/api/v1/aidetect
+
+## zerogpt requires the path to a json file that contains valid POST headers
+## Due to the reserved nature of zerogpt's use, the correct format for an API key is unknown
+## ZEROGPT_HEADER_JSON_PATH is REQUIRED
+## ZEROGPT_POST_ENDPOINT is optional (defaults to https://api.zerogpt.com/api/detect/detectText)
+
+# ZEROGPT_HEADER_JSON_PATH=<insert_path_here>
+# ZEROGPT_POST_ENDPOINT=https://api.zerogpt.com/api/detect/detectText
+
 ```

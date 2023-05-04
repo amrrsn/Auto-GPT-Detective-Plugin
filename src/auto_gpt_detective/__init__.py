@@ -26,7 +26,13 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
                 and os.getenv("SAPLINGAI_API_KEY")
         )
 
-        if self.load_sapling is None:
+        self.load_zero_gpt = (
+                os.getenv("DETECTIVE_ENGINE").lower() == "zerogpt"
+                and os.getenv("ZEROGPT_HEADER_JSON_PATH")
+                and os.path.exists(os.getenv("ZEROGPT_HEADER_JSON_PATH"))
+        )
+
+        if self.load_sapling is None and self.load_zero_gpt is None:
             print("Warning: Detective Engine not set!")
 
     def can_handle_post_prompt(self) -> bool:
@@ -38,9 +44,18 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
 
             prompt.add_command(
                 "sapling_detect",
-                "Detect AI Generated Text",
+                "Detect AI Generated Text With SaplingAI",
                 {"text": "<text>"},
                 _sapling_detect,
+            )
+        elif self.load_zerogpt:
+            from .zerogpt import _zerogpt_detect
+
+            prompt.add_command(
+                "zerogpt_detect",
+                "Detect AI Generated Text With ZeroGPT",
+                {"text": "<text>"},
+                _zerogpt_detect,
             )
         else:
             print(
@@ -48,6 +63,11 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
                 "Please set DETECTIVE_ENGINE and the "
                 "appropriate API key environment variables. "
                 "(SAPLINGAI_API_KEY)"
+            )
+
+            print(
+                "Note: In the case of ZeroGPT, "
+                "the path to a json file containing POST headers is required"
             )
 
         return prompt
@@ -58,8 +78,13 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
     def pre_command(
             self, command_name: str, arguments: Dict[str, Any]
     ) -> Tuple[str, Dict[str, Any]]:
-        if command_name == "detect_ai" and self.load_sapling:
+        if command_name != "detect_ai":
+            return command_name, arguments
+
+        if self.load_sapling:
             return "sapling_detect", arguments
+        elif self.load_zero_gpt:
+            return "zero_gpt_detect", arguments
         else:
             return command_name, arguments
 
