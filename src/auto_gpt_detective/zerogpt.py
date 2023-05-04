@@ -3,7 +3,7 @@ import requests
 import json
 
 
-def _zero_gpt_detect(text: str) -> str:
+def _zerogpt_detect(text: str) -> str:
     post_endpoint = os.getenv("ZEROGPT_POST_ENDPOINT")
     if post_endpoint is None:
         post_endpoint = "https://api.zerogpt.com/api/detect/detectText"
