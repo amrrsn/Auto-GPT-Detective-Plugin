@@ -20,6 +20,3 @@ def _sapling_detect(text: str, sent_scores: bool = False) -> str:
 
     results = response.json()
     return json.dumps(results, ensure_ascii=False, indent=4)
-
-
-sapling_post_endpoint = 'https://api.sapling.ai/api/v1/aidetect'
