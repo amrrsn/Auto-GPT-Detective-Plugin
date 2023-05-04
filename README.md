@@ -38,7 +38,7 @@ Put the following in your `.env` and uncomment as desired:
 ################################################################################
 
 ## DETECTIVE_ENGINE can be one of the following: saplingapi, zerogpt
-# DETECTIVE_ENGINE=saplingapi
+# DETECTIVE_ENGINE=saplingai
 
 ## saplingapi mode requires a paid mode api key
 ## SAPLING_API_KEY is REQUIRED
