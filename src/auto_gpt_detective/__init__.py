@@ -17,10 +17,9 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
     """
 
     def __init__(self):
-        print("detective init")
         super().__init__()
         self._name = "Auto-GPT-Detective-Plugin"
-        self._version = "0.0.1"
+        self._version = "0.0.2"
         self._description = "Detect AI generated text."
         self.load_sapling = (
                 os.getenv("DETECTIVE_ENGINE").lower() == "saplingai"
@@ -34,7 +33,6 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
         return True
 
     def post_prompt(self, prompt: PromptGenerator) -> PromptGenerator:
-        print("post_prompt start")
         if self.load_sapling:
             from .sapling_ai import _sapling_detect
 
@@ -60,7 +58,6 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
     def pre_command(
             self, command_name: str, arguments: Dict[str, Any]
     ) -> Tuple[str, Dict[str, Any]]:
-        print("pre_command start")
         if command_name == "detect_ai" and self.load_sapling:
             return "sapling_detect", arguments
         else:
