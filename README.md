@@ -1,7 +1,7 @@
 # Auto-GPT-Detective-Plugin
 The Auto-GPT-Detective-Plugin is a useful tool for any AI enthusiast. 
 This plugin aims to provide Auto-GPT with the ability to detect whether text is AI generated.
-This will help the system recognize the quality of sources it is using, or potentially allow for the system to rewrite the text in order to evade such systems.
+This will help the system recognize the quality of sources it is using.
 
 ### Key Features
 - [Sapling AI Detector](https://sapling.ai/ai-content-detector): Detects whether text is ai generated, with the ability to rate specific portions. Requires a Sapling AI paid plan in order to use the API.
