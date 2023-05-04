@@ -34,6 +34,8 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
 
         print(os.getenv("DETECTIVE_ENGINE"))
         print(os.getenv("ZEROGPT_HEADER_JSON_PATH"))
+        print(os.path.exists(os.getenv("ZEROGPT_HEADER_JSON_PATH")))
+        print(self.load_zerogpt)
 
         if self.load_sapling is None and self.load_zerogpt is None:
             print("Warning: Detective Engine not set!")
@@ -53,6 +55,8 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
             )
         elif self.load_zerogpt:
             from .zerogpt import _zerogpt_detect
+
+            print("registering zerogpt")
 
             prompt.add_command(
                 "zerogpt_detect",
