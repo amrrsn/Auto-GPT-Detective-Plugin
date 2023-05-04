@@ -7,6 +7,5 @@ wheel
 setuptools
 build
 twine
-os
-json
 requests
+auto_gpt_plugin_template
