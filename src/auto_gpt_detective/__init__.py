@@ -19,7 +19,7 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
 
     def __init__(self):
         super().__init__()
-        self._name = "autogpt-detective"
+        self._name = "Auto-GPT-Detective-Plugin"
         self._version = "0.0.1"
         self._description = "Detect AI generated text."
         self.load_sapling = (
@@ -41,7 +41,8 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
         else:
             print(
                 "Warning: Detective Engine not loaded. "
-                "Please set DETECTIVE_ENGINE and the appropriate API key environment variables. "
+                "Please set DETECTIVE_ENGINE and the "
+                "appropriate API key environment variables. "
                 "(SAPLINGAI_API_KEY)"
             )
 
@@ -103,11 +104,13 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
         pass
 
     def can_handle_chat_completion(
-            self, messages: Dict[Any, Any], model: str, temperature: float, max_tokens: int
+            self, messages: Dict[Any, Any], model: str,
+            temperature: float, max_tokens: int
     ) -> bool:
         return False
 
     def handle_chat_completion(
-            self, messages: List[Message], model: str, temperature: float, max_tokens: int
+            self, messages: List[Message], model: str,
+            temperature: float, max_tokens: int
     ) -> str:
         pass
