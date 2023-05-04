@@ -26,7 +26,7 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
                 and os.getenv("SAPLINGAI_API_KEY")
         )
 
-        self.load_zero_gpt = (
+        self.load_zerogpt = (
                 os.getenv("DETECTIVE_ENGINE").lower() == "zerogpt"
                 and os.getenv("ZEROGPT_HEADER_JSON_PATH")
                 and os.path.exists(os.getenv("ZEROGPT_HEADER_JSON_PATH"))
