@@ -35,6 +35,6 @@ Put the following in your `.env`
 ### DETECTIVE PLUGIN SETTINGS
 ################################################################################
 
-DETECTIVE_ENGINE=saplingapi
+DETECTIVE_ENGINE=saplingai
 SAPLING_API_KEY=<insert_api_key_here>
 ```
