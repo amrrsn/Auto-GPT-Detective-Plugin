@@ -52,7 +52,7 @@ class AutoGPTDetective(AutoGPTPluginTemplate):
                 "(SAPLINGAI_API_KEY)"
             )
 
-            return prompt
+        return prompt
 
     def can_handle_pre_command(self) -> bool:
         return True
