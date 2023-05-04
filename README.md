@@ -10,8 +10,8 @@ This will help the system recognize the quality of sources it is using.
 If the environment variables for the detective engine (`DETECTIVE_ENGINE`) and the associated api key (`SAPLINGAI_API_KEY`) are set, the detective commands for that engine will be enabled.
 
 ### TODO
-- [x] Implement initial detection through SaplingAI
-- [ ] Implement other detective engines
+- [x] Implement initial detection through SaplingAI (It has a free trial for the API)
+- [ ] Implement other detective engines ([GPTZero](https://gptzero.me)? [ZeroGPT](https://www.zerogpt.com)? [OpenAI](https://platform.openai.com/ai-text-classifier)? [Writer](https://writer.com/ai-content-detector/)?)
 - [ ] Format the engine output to be consistent across the engines
 
 
