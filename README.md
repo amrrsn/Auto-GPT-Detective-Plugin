@@ -19,11 +19,11 @@ Download this repository as a .zip file, copy it to ./plugins/, and rename it to
 
 To download it directly from your Auto-GPT directory, you can run this command on Linux or MacOS:
 ```sh
-curl -o ./plugins/Auto-GPT-Detective-Plugin.zip https://github.com/amrrsn/Auto-GPT-Detective-Plugin/archive/refs/heads/master.zip 
+curl -o ./plugins/Auto-GPT-Detective-Plugin.zip https://github.com/amrrsn/Auto-GPT-Detective-Plugin/archive/refs/heads/master.zip
 ```
 
 In PowerShell:
 ```pwsh
-Invoke-WebRequest -Uri "https://github.com/amrrsn/Auto-GPT-Detective-Plugin/archive/refs/heads/master.zip" -OutFile "./plugins/Auto-GPT-Detective-Plugin.zip"
+Invoke-WebRequest -Uri "ttps://github.com/amrrsn/Auto-GPT-Detective-Plugin/archive/refs/heads/master.zip" -OutFile "./plugins/Auto-GPT-Detective-Plugin.zip"
 ```
 
